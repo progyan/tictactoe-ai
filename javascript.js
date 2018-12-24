@@ -13,26 +13,50 @@ if(Math.floor(Math.random() * 2) % 2){
     tac = 'X';
 }else{
     tacTurn = 'My';
-    tac = '0';
+    tac = 'O';
 }
 document.getElementById('display').innerHTML = tacTurn + ' turn';
 
 function addTic(el){
     if(el.innerHTML === ''){
-        el.innerHTML = tac;
         if(tac == 'X'){
+            el.innerHTML = tac;
             el.style.color = 'maroon';
             board[parseInt(el.id.charAt(0)) - 1][parseInt(el.id.charAt(1)) - 1] = 1;
             checkIfPlayerWins();
             tac = 'O';
+            tacTurn = 'My';
         }else{
-            el.style.color = 'yellowgreen';
-            board[parseInt(el.id.charAt(0)) - 1][parseInt(el.id.charAt(1)) - 1] = 0;
-            checkIfPlayerWins();
-            tac = 'X';
+            addMyTic();
         }
         document.getElementById('display').innerHTML = tacTurn + ' turn';
     }
+}
+
+function addMyTic(){
+    let packed = getTic();
+    let x = packed[0];
+    let y = packed[1];
+    let el = document.getElementById((y + (10 * x)).toString());
+    el.innerHTML = tac;
+    el.style.color = 'yellowgreen';
+    board[parseInt(el.id.charAt(0)) - 1][parseInt(el.id.charAt(1)) - 1] = 0;
+    checkIfPlayerWins();
+    tac = 'X';
+    tacTurn = "Your";
+}
+
+function getTic(){
+    let x, y;
+    x = Math.ceil(Math.random() * 3);
+    y = Math.ceil(Math.random() * 3);
+    let el = document.getElementById((y + (10 * x)).toString());
+    while(el.innerHTML != ''){
+        x = Math.ceil(Math.random() * 3);
+        y = Math.ceil(Math.random() * 3);
+        el = document.getElementById((y + (10 * x)).toString());
+    }
+    return [x, y];
 }
 
 function checkIfPlayerWins(){
