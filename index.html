@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Play Tic-tac-toe online</title>
+        <link href="style.css" rel='stylesheet'>
+        <link href="https://fonts.googleapis.com/css?family=Josefin+Sans|Bungee" rel="stylesheet">
+    </head>
+    <body>
+        <h2 class='posabs' onclick="restart()" id='restart'>🔄</h2>
+        <div class='abs'>
+            <h1>Play Tic-tac-toe AI online<span class='mini'>v.5.6</span></h1>
+        </div>
+        <!--♔♕♗♘♙♚♛♝♞♟♖♜⛂⛀-->
+        <table id='table'>
+            <tr>
+                <td class='white' id='11' onclick="addTic(this)"></td>
+                <td class='black' id='12' onclick="addTic(this)"></td>
+                <td class='white' id='13' onclick="addTic(this)"></td>
+            </tr>
+            <tr>
+                <td class='black' id='21' onclick="addTic(this)"></td>
+                <td class='white' id='22' onclick="addTic(this)"></td>
+                <td class='black' id='23' onclick="addTic(this)"></td>
+            </tr>
+            <tr>
+                <td class='white' id='31' onclick="addTic(this)"></td>
+                <td class='black' id='32' onclick="addTic(this)"></td>
+                <td class='white' id='33' onclick="addTic(this)"></td>
+            </tr>
+        </table>
+        <div class='abs'><h2 id='display'>Your turn</h2></div>
+        <div class='floor abs'>
+            <p>By <a href='' class='ss' onmouseover="bluish()">YanCo WebLabs</a>. Made with JS and <span>love</span></p>
+        </div>
+        <script src="javascript.js"></script>
+    </body>
+</html>
