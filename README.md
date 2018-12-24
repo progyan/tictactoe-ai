@@ -1,2 +1,2 @@
-# Tic-Tac-Toe
-A tic-tac-toe game for two humans.
+# tictactoe-ai
+A tic-tac-toe game for a human and a computer.
